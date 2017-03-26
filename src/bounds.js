@@ -1,6 +1,6 @@
 // @flow
 
-import type {Grid} from './Types';
+import type {Grid} from './types';
 
 const find: Function = (
   compare: Function,

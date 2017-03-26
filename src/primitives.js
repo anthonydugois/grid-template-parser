@@ -1,6 +1,6 @@
 // @flow
 
-import type {Area, Rect} from './Types';
+import type {Area, Rect} from './types';
 
 export const area: Function = (
   {

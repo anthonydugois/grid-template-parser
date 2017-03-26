@@ -1,6 +1,6 @@
 // @flow
 
-import type {Grid, Rect} from './Types';
+import type {Grid, Rect} from './types';
 
 import {area, rect} from './primitives';
 
