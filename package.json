@@ -1,0 +1,26 @@
+{
+  "name": "grid-template-parser",
+  "version": "1.0.0",
+  "description": "A simple CSS Grid template parser",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "lint:flow": "flow check || exit 0"
+  },
+  "author": "Anthony Dugois <dev.anthonydugois@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2016": "^6.22.0",
+    "flow-bin": "^0.42.0",
+    "jest": "^19.0.2"
+  }
+}

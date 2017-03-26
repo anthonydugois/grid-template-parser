@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "es2015",
+    "es2016"
+  ],
+  "plugins": [
+    "transform-flow-strip-types"
+  ]
+}
