@@ -224,7 +224,7 @@ Converts a rect into an area.
 ```js
 import {area} from 'grid-template-parser';
 
-const r = area({
+const a = area({
   x: 0,
   y: 0,
   width: 3,
@@ -512,7 +512,7 @@ Finds the height of the grid.
 ```js
 import {grid, height} from 'grid-template-parser';
 
-const w = height(grid(`
+const h = height(grid(`
   "a a b b"
   "a a b b"
   ". . b b"
