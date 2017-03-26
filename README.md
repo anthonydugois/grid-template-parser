@@ -103,7 +103,7 @@ Parses a grid template and returns an object representation.
 
 #### Returns
 
-*Grid* An object representation of the grid template.
+*[Grid](#grid)* An object representation of the grid template.
 
 #### Example
 
@@ -145,7 +145,7 @@ Builds a grid template from an object representation.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to build.
+1. `grid` *[Grid](#grid)* The grid to build.
 
 #### Returns
 
@@ -181,11 +181,11 @@ Converts an area into a rect.
 
 #### Arguments
 
-1. `area` *Area* The area to convert.
+1. `area` *[Area](#area)* The area to convert.
 
 #### Returns
 
-*Rect* The equivalent rect.
+*[Rect](#rect)* The equivalent rect.
 
 #### Example
 
@@ -213,11 +213,11 @@ Converts a rect into an area.
 
 #### Arguments
 
-1. `rect` *Rect* The rect to convert.
+1. `rect` *[Rect](#rect)* The rect to convert.
 
 #### Returns
 
-*Area* The equivalent area.
+*[Area](#area)* The equivalent area.
 
 #### Example
 
@@ -245,7 +245,7 @@ Finds the min column start of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -273,7 +273,7 @@ Finds the max column start of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -301,7 +301,7 @@ Finds the min column end of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -329,7 +329,7 @@ Finds the max column end of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -357,7 +357,7 @@ Finds the min row start of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -386,7 +386,7 @@ Finds the max row start of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -415,7 +415,7 @@ Finds the min row end of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -444,7 +444,7 @@ Finds the max row end of all grid areas.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -473,7 +473,7 @@ Finds the width of the grid.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
@@ -501,7 +501,7 @@ Finds the height of the grid.
 
 #### Arguments
 
-1. `grid` *Grid* The grid to analyze.
+1. `grid` *[Grid](#grid)* The grid to analyze.
 
 #### Returns
 
