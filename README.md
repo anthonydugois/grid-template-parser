@@ -18,7 +18,7 @@ const areas = grid(`
   "a a a b b"
   ". . c c c"
   "d d d d d"
-`)
+`);
 
 // → {
 //   a: {
