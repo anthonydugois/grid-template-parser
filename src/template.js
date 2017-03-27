@@ -1,25 +1,26 @@
 // @flow
 
-import type {Grid} from './types';
+import type {Grid, Area} from './types';
 
-import {width, height} from './bounds';
+const defaultTemplate: Function = (
+  width: number,
+  height: number,
+): Array<Array<string>> =>
+  Array.from({length: height}, () => Array.from({length: width}, () => '.'));
 
-const matchingArea: Function = (grid: Grid, r: number, c: number): Function =>
+const matchingArea: Function = (
+  areas: {[key: string]: Area},
+  r: number,
+  c: number,
+): Function =>
   (cell: string): boolean =>
-    grid[cell].row.start <= r + 1 &&
-    grid[cell].row.end > r + 1 &&
-    grid[cell].column.start <= c + 1 &&
-    grid[cell].column.end > c + 1;
+    areas[cell].row.start <= r + 1 &&
+    areas[cell].row.end > r + 1 &&
+    areas[cell].column.start <= c + 1 &&
+    areas[cell].column.end > c + 1;
 
-const defaultTemplate: Function = (grid: Grid): Array<Array<string>> => {
-  const w: number = width(grid);
-  const h: number = height(grid);
-
-  return Array.from({length: h}, () => Array.from({length: w}, () => '.'));
-};
-
-export const template = (grid: Grid): string =>
-  defaultTemplate(grid).reduce(
+export const template = ({width, height, areas}: Grid): string =>
+  defaultTemplate(width, height).reduce(
     (
       acc: string,
       row: Array<string>,
@@ -35,8 +36,8 @@ export const template = (grid: Grid): string =>
           cells: Array<string>,
         ): string => {
           const separator: string = c < cells.length - 1 ? ' ' : '';
-          const area: ?string = Object.keys(grid).find(
-            matchingArea(grid, r, c),
+          const area: ?string = Object.keys(areas).find(
+            matchingArea(areas, r, c),
           );
 
           return `${acc}${typeof area === 'string' ? area : cell}${separator}`;

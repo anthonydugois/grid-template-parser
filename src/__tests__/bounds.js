@@ -7,8 +7,6 @@ import {
   maxColumnEnd,
   minRowEnd,
   maxRowEnd,
-  width,
-  height,
 } from '../bounds';
 
 import {grid} from '../grid';
@@ -113,32 +111,6 @@ test('should return the max row end of the grid', () => {
 
   const test = maxRowEnd(grid(template));
   const expected = 4;
-
-  expect(test).toBe(expected);
-});
-
-test('should return the width of the grid', () => {
-  const template = `
-    "a a b b"
-    "a a c c"
-    "a a c c"
-  `;
-
-  const test = width(grid(template));
-  const expected = 4;
-
-  expect(test).toBe(expected);
-});
-
-test('should return the height of the grid', () => {
-  const template = `
-    "a a b b"
-    "a a c c"
-    "a a c c"
-  `;
-
-  const test = height(grid(template));
-  const expected = 3;
 
   expect(test).toBe(expected);
 });

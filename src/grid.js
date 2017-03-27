@@ -1,6 +1,6 @@
 // @flow
 
-import type {Grid, Rect} from './types';
+import type {Grid, Area, Rect} from './types';
 
 import {area, rect} from './primitives';
 
@@ -20,10 +20,10 @@ const reduceRow: Function = (
 };
 
 const reduceGrid: Function = (
-  acc: Grid,
+  acc: {[key: string]: Area},
   row: Array<string>,
   r: number,
-): Grid => {
+): {[key: string]: Area} => {
   row.forEach((cell: string, c: number) => {
     if (cell !== '.') {
       if (typeof acc[cell] === 'undefined') {
@@ -49,5 +49,14 @@ const reduceGrid: Function = (
   return acc;
 };
 
-export const grid: Function = (template: string): Grid =>
-  template.split(separator).reduce(reduceRow, []).reduce(reduceGrid, {});
+export const grid: Function = (template: string): Grid => {
+  const rows: Array<Array<string>> = template
+    .split(separator)
+    .reduce(reduceRow, []);
+
+  const width: number = rows[0].length;
+  const height: number = rows.length;
+  const areas: {[key: string]: Area} = rows.reduce(reduceGrid, {});
+
+  return {width, height, areas};
+};

@@ -12,6 +12,8 @@
     "clean": "rimraf lib coverage",
     "lint": "npm run lint:flow",
     "lint:flow": "flow check || exit 0",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags",
     "prepublish": "npm run lint && npm test && npm run build",
     "postpublish": "npm run clean"
   },

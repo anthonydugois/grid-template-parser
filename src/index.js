@@ -15,6 +15,4 @@ export {
   maxColumnEnd,
   minRowEnd,
   maxRowEnd,
-  width,
-  height,
 } from './bounds';

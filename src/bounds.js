@@ -3,12 +3,12 @@
 import type {Grid} from './types';
 
 const find: Function = (
-  compare: Function,
+  fn: Function,
   direction: 'row' | 'column',
   extremum: 'start' | 'end',
-  grid: Grid,
+  {areas}: Grid,
 ): number =>
-  compare(...Object.keys(grid).map(cell => grid[cell][direction][extremum]));
+  fn(...Object.keys(areas).map(cell => areas[cell][direction][extremum]));
 
 export const minColumnStart: Function = (grid: Grid): number =>
   find(Math.min, 'column', 'start', grid);
@@ -33,7 +33,3 @@ export const minRowEnd: Function = (grid: Grid): number =>
 
 export const maxRowEnd: Function = (grid: Grid): number =>
   find(Math.max, 'row', 'end', grid);
-
-export const width: Function = (grid: Grid): number => maxColumnEnd(grid) - 1;
-
-export const height: Function = (grid: Grid): number => maxRowEnd(grid) - 1;

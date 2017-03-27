@@ -18,4 +18,8 @@ export type Rect = {
   height: number,
 };
 
-export type Grid = {[key: string]: Area};
+export type Grid = {
+  width: number,
+  height: number,
+  areas: {[key: string]: Area},
+};

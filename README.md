@@ -23,21 +23,25 @@ const areas = grid(`
 `);
 
 // → {
-//   a: {
-//     column: {start: 1, end: 4, span: 3},
-//     row: {start: 1, end: 3, span: 2},
-//   },
-//   b: {
-//     column: {start: 4, end: 6, span: 2},
-//     row: {start: 1, end: 3, span: 2},
-//   },
-//   c: {
-//     column: {start: 3, end: 6, span: 3},
-//     row: {start: 3, end: 4, span: 1},
-//   },
-//   d: {
-//     column: {start: 1, end: 6, span: 5},
-//     row: {start: 4, end: 5, span: 1},
+//   width: 5,
+//   height: 4,
+//   areas: {
+//     a: {
+//       column: {start: 1, end: 4, span: 3},
+//       row: {start: 1, end: 3, span: 2},
+//     },
+//     b: {
+//       column: {start: 4, end: 6, span: 2},
+//       row: {start: 1, end: 3, span: 2},
+//     },
+//     c: {
+//       column: {start: 3, end: 6, span: 3},
+//       row: {start: 3, end: 4, span: 1},
+//     },
+//     d: {
+//       column: {start: 1, end: 6, span: 5},
+//       row: {start: 4, end: 5, span: 1},
+//     },
 //   },
 // }
 ```
@@ -48,13 +52,17 @@ const areas = grid(`
 import {template} from 'grid-template-parser';
 
 const areas = template({
-  a: {
-    column: {start: 1, end: 4, span: 3},
-    row: {start: 1, end: 3, span: 2},
-  },
-  b: {
-    column: {start: 3, end: 6, span: 3},
-    row: {start: 3, end: 5, span: 2},
+  width: 5,
+  height: 4,
+  areas: {
+    a: {
+      column: {start: 1, end: 4, span: 3},
+      row: {start: 1, end: 3, span: 2},
+    },
+    b: {
+      column: {start: 3, end: 6, span: 3},
+      row: {start: 3, end: 5, span: 2},
+    },
   },
 });
 
@@ -83,7 +91,11 @@ const b = area({
   height: 2,
 });
 
-const areas = template({a, b});
+const areas = template({
+  width: 5,
+  height: 4,
+  areas: {a, b},
+});
 
 // → `"a a a . ."
 //    "a a a . ."
@@ -118,21 +130,25 @@ const areas = grid(`
 `);
 
 // → {
-//   a: {
-//     column: {start: 1, end: 4, span: 3},
-//     row: {start: 1, end: 3, span: 2},
-//   },
-//   b: {
-//     column: {start: 4, end: 6, span: 2},
-//     row: {start: 1, end: 3, span: 2},
-//   },
-//   c: {
-//     column: {start: 3, end: 6, span: 3},
-//     row: {start: 3, end: 4, span: 1},
-//   },
-//   d: {
-//     column: {start: 1, end: 6, span: 5},
-//     row: {start: 4, end: 5, span: 1},
+//   width: 5,
+//   height: 4,
+//   areas: {
+//     a: {
+//       column: {start: 1, end: 4, span: 3},
+//       row: {start: 1, end: 3, span: 2},
+//     },
+//     b: {
+//       column: {start: 4, end: 6, span: 2},
+//       row: {start: 1, end: 3, span: 2},
+//     },
+//     c: {
+//       column: {start: 3, end: 6, span: 3},
+//       row: {start: 3, end: 4, span: 1},
+//     },
+//     d: {
+//       column: {start: 1, end: 6, span: 5},
+//       row: {start: 4, end: 5, span: 1},
+//     },
 //   },
 // }
 ```
@@ -157,13 +173,17 @@ Builds a grid template from an object representation.
 import {template} from 'grid-template-parser';
 
 const areas = template({
-  a: {
-    column: {start: 1, end: 4, span: 3},
-    row: {start: 1, end: 3, span: 2},
-  },
-  b: {
-    column: {start: 3, end: 6, span: 3},
-    row: {start: 3, end: 5, span: 2},
+  width: 5,
+  height: 4,
+  areas: {
+    a: {
+      column: {start: 1, end: 4, span: 3},
+      row: {start: 1, end: 3, span: 2},
+    },
+    b: {
+      column: {start: 3, end: 6, span: 3},
+      row: {start: 3, end: 5, span: 2},
+    },
   },
 });
 
@@ -465,62 +485,6 @@ const max = maxRowEnd(grid(`
 // → 4
 ```
 
----
-
-### `width(grid)`
-
-Finds the width of the grid.
-
-#### Arguments
-
-1. `grid` *[Grid](#grid)* The grid to analyze.
-
-#### Returns
-
-*number* The grid width.
-
-#### Example
-
-```js
-import {grid, width} from 'grid-template-parser';
-
-const w = width(grid(`
-  "a a b b"
-  "a a b b"
-  ". . b b"
-`));
-
-// → 4
-```
-
----
-
-### `height(grid)`
-
-Finds the height of the grid.
-
-#### Arguments
-
-1. `grid` *[Grid](#grid)* The grid to analyze.
-
-#### Returns
-
-*number* The grid height.
-
-#### Example
-
-```js
-import {grid, height} from 'grid-template-parser';
-
-const h = height(grid(`
-  "a a b b"
-  "a a b b"
-  ". . b b"
-`));
-
-// → 3
-```
-
 ## Types
 
 ### `Track`
@@ -556,7 +520,11 @@ type Rect = {
 ### `Grid`
 
 ```js
-type Grid = {[key: string]: Area};
+type Grid = {
+  width: number,
+  height: number,
+  areas: {[key: string]: Area},
+};
 ```
 
 ## License
