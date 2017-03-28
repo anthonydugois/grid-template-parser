@@ -4,12 +4,16 @@
   "description": "A simple CSS Grid template parser",
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
   "scripts": {
     "test": "jest",
-    "build": "cross-env BABEL_ENV=commonjs babel src --ignore __tests__ --out-dir lib",
-    "clean": "rimraf lib coverage",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --ignore __tests__ --out-dir lib",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/GridTemplateParser.js",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/GridTemplateParser.min.js",
+    "clean": "rimraf lib dist coverage",
     "lint": "npm run lint:flow",
     "lint:flow": "flow check || exit 0",
     "preversion": "npm test",
@@ -33,12 +37,15 @@
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-es2016": "^6.22.0",
     "cross-env": "^3.2.4",
     "flow-bin": "^0.42.0",
     "jest": "^19.0.2",
-    "rimraf": "^2.6.1"
+    "path": "^0.12.7",
+    "rimraf": "^2.6.1",
+    "webpack": "^2.3.2"
   }
 }
