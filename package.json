@@ -1,6 +1,6 @@
 {
   "name": "grid-template-parser",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A simple CSS Grid template parser",
   "main": "lib/index.js",
   "files": [
