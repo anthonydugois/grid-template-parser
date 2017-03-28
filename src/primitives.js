@@ -1,6 +1,11 @@
 // @flow
 
-import type {Area, Rect} from './types';
+import type {Track, Area, Rect} from './types';
+
+export const track: Function = (
+  start?: number = 1,
+  end?: number = 1,
+): Track => ({start, end, span: end - start});
 
 export const area: Function = (
   {
@@ -10,16 +15,8 @@ export const area: Function = (
     height = 0,
   }: Rect = {},
 ): Area => ({
-  column: {
-    start: x + 1,
-    end: x + width + 1,
-    span: width,
-  },
-  row: {
-    start: y + 1,
-    end: y + height + 1,
-    span: height,
-  },
+  column: track(x + 1, x + width + 1),
+  row: track(y + 1, y + height + 1),
 });
 
 export const rect: Function = (
